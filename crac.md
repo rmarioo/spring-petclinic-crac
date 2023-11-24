@@ -17,6 +17,18 @@
 - ```sudo chown root:root $JAVA_HOME/lib/criu```
 - ```sudo chmod u+s $JAVA_HOME/lib/criu```
 
+5. Make sure you have the dependency to org.crac added to your build file
+- gradle: <br>
+```implementation 'org.crac:crac:1.4.0'```
+- maven :
+```
+<dependency>
+  <groupId>org.crac</groupId>
+  <artifactId>crac</artifactId>
+  <version>1.4.0</version>
+</dependency>  
+```
+
 <br><br>
 
 #### Build the application
