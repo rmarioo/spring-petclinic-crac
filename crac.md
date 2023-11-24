@@ -37,11 +37,11 @@
 1. Make sure the folder ```tmp_checkpoint``` exists
 2. Remove all files from the folder ```tmp_checkpoint``` with ```rm ./tmp_checkpoint/*.*```
 3. Start the application and automatically create a checkpoint
-- ```bash start_autocrac.sh```
+- ```bash start-autocrac.sh```
 
 <br>
 
 #### Restore the application from the previously created checkpoint
 1. Restore the application from the stored checkpoint
-- ```bash restore_autocrac.sh```
+- ```bash restore-autocrac.sh```
 - 
