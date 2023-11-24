@@ -53,6 +53,18 @@
 
 <br>
 
+#### Start the application and manually create a snapshot
+1. Make sure the folder ```tmp_checkpoint``` exists
+2. Remove all files from the folder ```tmp_checkpoint``` with ```rm ./tmp_checkpoint/*.*```
+3. Start the application and automatically create a checkpoint
+- ```java -XX:CRaCCheckpointTo=./tmp_checkpoint -jar spring-petclinic-3.2.0.jar```
+4. Start a second shell window
+5. Go to the project folder
+6. Create the checkpoint manually with
+- ```jcmd spring-petclinic-3.2.0.jar JDK.checkpoint```
+
+<br>
+
 #### Restore the application from the previously created checkpoint
 1. Restore the application from the stored checkpoint
 - ```bash restore-autocrac.sh```
