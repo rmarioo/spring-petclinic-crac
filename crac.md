@@ -70,7 +70,7 @@
 There are two ways of creating the checkpoint manually, calling the application jar or the pid
 
 1. Calling the application jar
-```java spring-petclinic-3.2.0.jar JDK.checkpoint```
+```jcmd spring-petclinic-3.2.0.jar JDK.checkpoint```
 
 or 
 

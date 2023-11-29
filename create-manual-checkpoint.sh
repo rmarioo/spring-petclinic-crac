@@ -1,4 +1,4 @@
 #!/bin/bash
 
-java $1 JDK.checkpoint
+jcmd $1 JDK.checkpoint
 
