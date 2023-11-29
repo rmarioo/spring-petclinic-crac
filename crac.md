@@ -47,7 +47,7 @@
 <br>
 
 #### Info:
-A checkpoint can also be compressed on the hard drive by executing
+A checkpoint can also be compressed (only in Azul Zulu) on the hard drive by executing
 ```export CRAC_CRIU_OPTS=--compress```
 It is already in the two shell scripts for starting up the app with the different options
 - start-auto-crac.sh
