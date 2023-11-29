@@ -46,6 +46,18 @@
 
 <br>
 
+#### Info:
+A checkpoint can also be compressed on the hard drive by executing
+```export CRAC_CRIU_OPTS=--compress```
+It is already in the two shell scripts for starting up the app with the different options
+- start-auto-crac.sh
+- start-manual-crac.sh
+So you simply have to un-comment it in these shell scripts.
+Be aware that the compression at checkpoint and decompression at restoring will take longer.
+Meaning to say the restore will be slower when using a compressed checkpoint (on my machine used here it takes around 150ms to de-compress the checkpoint)
+
+<br>
+
 #### Start the application and automatically create a checkpoint after the framework startup
 1. Make sure the folder ```tmp_auto_checkpoint``` exists
 2. Remove all files from the folder ```tmp_auto_checkpoint``` with ```rm ./tmp_auto_checkpoint/*.*```
