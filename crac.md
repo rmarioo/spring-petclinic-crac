@@ -35,37 +35,52 @@
 1. Open the project folder
 2. run ```gradlew clean build```
 3. Now you should find the the jar at ```build/libs/spring-petclinic-3.2.0.jar```
-4. Create a folder named ```tmp_checkpoint``` in the project folder (besides the ```src``` folder)
+4. Create a folder named ```tmp_auto_checkpoint``` in the project folder (besides the ```src``` folder)
+5. Create a folder named ```tmp_manual_checkpoint``` in the project folder (besides the ```src``` folder)
 
 <br><br>
 
 #### Start the application without any CRaC
 1. Start the application normally
-- ```bash start.sh```
+```bash start.sh```
 
 <br>
 
-#### Start the application and automatically create a checkpoint after startup
-1. Make sure the folder ```tmp_checkpoint``` exists
-2. Remove all files from the folder ```tmp_checkpoint``` with ```rm ./tmp_checkpoint/*.*```
+#### Start the application and automatically create a checkpoint after the framework startup
+1. Make sure the folder ```tmp_auto_checkpoint``` exists
+2. Remove all files from the folder ```tmp_auto_checkpoint``` with ```rm ./tmp_auto_checkpoint/*.*```
 3. Start the application and automatically create a checkpoint
-- ```bash start-autocrac.sh```
+```bash start-auto-crac.sh```
 
 <br>
 
-#### Start the application and manually create a snapshot
-1. Make sure the folder ```tmp_checkpoint``` exists
-2. Remove all files from the folder ```tmp_checkpoint``` with ```rm ./tmp_checkpoint/*.*```
-3. Start the application and automatically create a checkpoint
-- ```java -XX:CRaCCheckpointTo=./tmp_checkpoint -jar spring-petclinic-3.2.0.jar```
-4. Start a second shell window
-5. Go to the project folder
-6. Create the checkpoint manually with
-- ```jcmd spring-petclinic-3.2.0.jar JDK.checkpoint```
-
-<br>
-
-#### Restore the application from the previously created checkpoint
+#### Restore the application from the automatically created checkpoint
 1. Restore the application from the stored checkpoint
-- ```bash restore-autocrac.sh```
-- 
+```bash restore-auto-crac.sh```
+
+<br><br>
+
+#### Start the application and create a checkpoint manually after application startup
+1. Make sure the folder ```tmp_manual_checkpoint``` exists
+2. Remove all files from the folder ```tmp_manual_checkpoint```with ```rm ./tmp_manual_checkpoint/*.*```
+3. Start the application 
+```bash start-manual-crac.sh```
+
+### Create the manual checkpoint
+There are two ways of creating the checkpoint manually, calling the application jar or the pid
+
+1. Calling the application jar
+```java spring-petclinic-3.2.0.jar JDK.checkpoint```
+
+or 
+
+1. Executing the ```create-manual-checkpoint.sh``` script with the PID (can be found in the output in the 1st shell window)
+```bash create-manual-checkpoint.sh PID```
+
+2. Check if the checkpoint files have been stored in ```./tmp_manual_checkpoint```
+
+<br>
+
+#### Restore the application from the manually created checkpoint
+1. Restore the application from the stored checkpoint by executing
+```bash restore-manual-crac.sh```

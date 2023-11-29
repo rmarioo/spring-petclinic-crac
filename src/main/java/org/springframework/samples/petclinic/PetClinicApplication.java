@@ -36,12 +36,14 @@ public class PetClinicApplication {
 
 	private static long startTime;
 	private static long endTime;
+	private static long pid;
 
 	public static void main(String[] args) {
 		startTime = System.nanoTime();
+		pid       = ProcessHandle.current().pid();
 		SpringApplication.run(PetClinicApplication.class, args);
 		if (null == System.getProperty("START_TIME")) {
-			System.out.println("Started up in " + ((endTime - startTime) / 1_000_000) + "ms");
+			System.out.println("Started up in " + ((endTime - startTime) / 1_000_000) + "ms with PID: " + pid);
 		}
 	}
 
@@ -50,7 +52,8 @@ public class PetClinicApplication {
 		if (null != System.getProperty("START_TIME")) {
 			startTime = Long.parseLong(System.getProperty("START_TIME"));
 			endTime   = Instant.now().toEpochMilli();
-			System.out.println("Started up in " + (endTime - startTime) + "ms");
+			pid       = ProcessHandle.current().pid();
+			System.out.println("Started up in " + (endTime - startTime) + "ms with PID: " + pid);
 		} else {
 			endTime = System.nanoTime();
 		}
