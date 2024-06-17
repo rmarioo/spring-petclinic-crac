@@ -36,7 +36,18 @@
   </properties>
 
   <dependencies>
-    <!-- Spring and Spring Boot dependencies -->
+	  <!-- Spring and Spring Boot dependencies -->
+
+    <dependency>
+      <groupId>org.crac</groupId>
+      <artifactId>crac</artifactId>
+      <version>1.4.0</version>
+    </dependency>  	  
+    <dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+</dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
